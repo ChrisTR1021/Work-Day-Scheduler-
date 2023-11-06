@@ -1,53 +1,11 @@
+var currentDate = moment().format('ddd, MMM do YYYY');
+$("currentday").html(currentDate);
+
 $(document).ready(function () {
- 
-  $(function () {
 
-    $(".saveBtn").on("click", function () {
-      var timeStated = $(this).parent().attr("id");
-      var textEdit = $(this).siblings("description").val();
-      localStorage.setItem(timeStated, textEdit);
-    });
-
-    $(".time-block").each(function () {
-      var timeStated = $(this).attr("id");
-      var textEdit = localStorage.getItem(timeStated);
-      $(this).children(".description").val(textEdit);
-    });
-
-    function timeAdjust() {
-      var todaysTime = dayjs().format("hh:mm:ss A");
-      var todaysDate = dayjs().format("dddd, MMMM D, YYYY");
-      var timeElement = $("#time");
-      var dateElement = $("#date");
-      timeElement.text(todaysTime);
-      dateElement.text(todaysDate);
-    }
-
-    function colorBlock() {
-      $(".time-block").each(function () {
-        var hourSegment = parseInt(this.id);
-        $(this).toggleClass("past", hourSegment < currentHour);
-        $(this).toggleClass("present", hourSegment === currentHour);
-        $(this).toggleClass("future", hourSegment > currentHour);
-      });
-    }
-    function hueChange() {
-      $(".time-block").each(function () {
-        var hourSegment = parseInt(this.id);
-        if (hourSegment == currentHour) {
-          $(this).removeClass("past future").addClass("present");
-        } else if (hourSegment < currentHour) {
-          $(this).removeClass("future present").addClass("past");
-        } else {
-          $(this).removeClass("past present").addClass("future");
-        }
-      });
-    }
-hueChange()
-colorBlock()
-timeAdjust()
-  });
-});
-
-
-
+  $(".saveBtn").on("click", function () {
+    var textEdit = $(this).siblings(".description").val();
+    var timeLine = $(this).parent().attr("id");
+    localStorage.setItem(textEdit, timeLine);
+  })
+}
