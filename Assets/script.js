@@ -1,4 +1,5 @@
 $(document).ready(function () {
+ 
   $(function editAllowed() {
     $(".saveBtn").on("click", function () {
       var textEdit = $(this).siblings("descriptioin").val();
