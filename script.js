@@ -22,7 +22,7 @@ $(document).ready(function () {
     var timeCurrent = dayjs().hour();
 
     $(".time-block").each(function () {
-      var scheduleBlock = parseInt($(this).attr("id").split("hour")[1]);
+      var scheduleBlock = parseInt($(this).attr("id").split("-")[1]);
 
 
       if (scheduleBlock < timeCurrent) {
