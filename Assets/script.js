@@ -8,4 +8,20 @@ $(document).ready(function () {
     var timeLine = $(this).parent().attr("id");
     localStorage.setItem(textEdit, timeLine);
   })
+
+  function timeRecognized() {
+    var timeCurrent = moment().hour();
+
+    $("time-block").each(function () {
+      var scheduleBlock = parseInt($(this).attr("id").split("hour")[1]);
+
+
+      if (scheduleBlock < timeCurrent) {
+        $(this).removeClass('future');
+        $(this).removeClass('present');
+        $(this).addClass('past');
+      }
+      
+    }
+  }
 }
