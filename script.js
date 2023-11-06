@@ -1,5 +1,5 @@
-var currentDate = moment().format('ddd, MMM do YYYY');
-$("currentday").html(currentDate);
+var currentDate = dayjs().format('ddd, MMM do YYYY');
+$("#currentday").html(currentDate);
 
 $(document).ready(function () {
 
@@ -19,9 +19,9 @@ $(document).ready(function () {
   $("#hour17 .description").val(localStorage.getItem("hour17"));
 
   function timeRecognized() {
-    var timeCurrent = moment().hour();
+    var timeCurrent = dayjs().hour();
 
-    $("time-block").each(function () {
+    $(".time-block").each(function () {
       var scheduleBlock = parseInt($(this).attr("id").split("hour")[1]);
 
 
