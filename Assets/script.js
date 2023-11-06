@@ -29,9 +29,22 @@ $(document).ready(function () {
         $(this).toggleClass("future", hourSegment > currentHour);
       });
     }
-    
+    function hueChange() {
+      $(".time-block").each(function () {
+        var hourSegment = parseInt(this.id);
+        if (hourSegment == currentHour) {
+          $(this).removeClass("past future").addClass("present");
+        } else if (hourSegment < currentHour) {
+          $(this).removeClass("future present").addClass("past");
+        } else {
+          $(this).removeClass("past present").addClass("future");
+        }
+      });
     }
   });
 });
 
 editAllowed();
+hueChange();
+colorBlock();
+timeAdjust();
