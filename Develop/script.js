@@ -7,6 +7,12 @@ $(document).ready(function () {
       var timeStated = $(this).parent().attr("id");
         localStorage.setItem(textEdit, timeStated);
     })
+
+    $('.time-block').each(function() {
+      var timeStated = $(this).attr('id');
+      var textEdit = localStorage.getItem(timeStated);
+      $(this).children('.description').val(textEdit);
+    });
   
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
