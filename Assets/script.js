@@ -1,10 +1,11 @@
 $(document).ready(function () {
  
-  $(function editAllowed() {
+  $(function () {
+
     $(".saveBtn").on("click", function () {
-      var textEdit = $(this).siblings("descriptioin").val();
       var timeStated = $(this).parent().attr("id");
-      localStorage.setItem(textEdit, timeStated);
+      var textEdit = $(this).siblings("description").val();
+      localStorage.setItem(timeStated, textEdit);
     });
 
     $(".time-block").each(function () {
@@ -42,10 +43,11 @@ $(document).ready(function () {
         }
       });
     }
+hueChange()
+colorBlock()
+timeAdjust()
   });
 });
 
-editAllowed();
-hueChange();
-colorBlock();
-timeAdjust();
+
+
